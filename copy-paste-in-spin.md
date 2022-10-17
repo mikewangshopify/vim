@@ -14,13 +14,13 @@
 * Start the xvfb server as a background job, e.g. `nohup Xvfb :99 &`
 * Define an alias `alias vim='DISPLAY=:99 vim'` to ensure vim is connected with the xvfb server
 * `set clipboard=unnamed` in the `~/.vimrc` file to set the default registry 
-* Then you should be able to copy/paste across tmux panes or windows using the vim native copy/paste keys, i.e. v to select lines, press y to copy, and press p in another pane or windows to copy
+* Then you should be able to copy/paste across tmux panes or windows using the vim native copy/paste keys, i.e. v to select lines, press y to copy, and press p in another pane or window to paste
 
 ## How to copy text from vim in spin and paste it in an editor on local Mac
 * Add this line to your `~/.vimrc` file   
 `map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>`
 * Then you should be able use CTRL+c to copy the text selected, and then paste it to your local Mac using CMD + v.
-* This vim command creates a buffer for a file named `~/clipsonyboard`, copy and paste the selected text into thisbuffer, and then copy them further into the pbcopy clipboard from the buffer, and finally delete this buffer. And the whole command is mapped with the shortcut CTRL+c.
+* This vim command creates a buffer for a file named `~/clipsonyboard`, copy and paste the selected text into thisbuffer, then copy them further into the pbcopy clipboard from the buffer, and finally delete this buffer. The whole command is mapped with the shortcut CTRL+c.
 * It looks a little bit complex and you may wonder why a buffer is needed and why not directly copy the text into pbcopy using `:w !pbcopy`. The reason is `:w !pbcopy` will copy the entire lines of the selected text. With the buffer operation, it is able to handle the block selection.
 
 ## How to copy text from Neovim in spin and paste it in an editor on local Mac 
